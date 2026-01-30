@@ -1,55 +1,83 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>About | yama</title>
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
-
 <body>
-  <div class="container">
-    <a class="back" href="/">← Home</a>
+  <div class="bg"></div>
+
+  <main class="container">
+    <header class="hero compact">
+      <div class="badge">Profile</div>
+      <h1 class="title">About</h1>
+      <p class="subtitle">
+        自分の「好き」と「挑戦」を、ちゃんと積み上げていくためのページです。
+      </p>
+
+      <div class="actions">
+        <a class="btn ghost" href="/">Homeへ戻る</a>
+        <a class="btn primary" href="/works">Worksを見る</a>
+      </div>
+    </header>
 
     <section class="profile">
-      <div class="profile__image">
-        <img src="{{ url_for('static', filename='images/home3.png') }}" alt="profile image">
-      </div>
-
-      <div class="profile__content">
-        <h1 class="profile__name">yama</h1>
-        <p class="profile__lead">
-          大学生。Pythonと統計を軸に、作品を作りながら学んでいます。
-          “好き”をちゃんと形にするのが目標です。
+      <div class="card">
+        <h2 class="section-title">基本情報</h2>
+        <p class="lead">
+          山内 健嗣（やまうち けんし）｜2004年8月1日生まれ。青森県六戸町出身。
+          現在は東京都の城西大学（紀尾井町キャンパス）で応用数学を学んでいます。
         </p>
 
-        <div class="profile__grid">
-          <div class="card">
-            <h2 class="card__title">プロフィール</h2>
-            <ul class="list">
-              <li>学習中：Python / Flask / Web</li>
-              <li>関心：データ・統計・ものづくり</li>
-              <li>高校：ハンドボール部（インターハイ出場）</li>
-            </ul>
-          </div>
-
-          <div class="card">
-            <h2 class="card__title">好きなもの</h2>
-            <ul class="list">
-              <li>アニメ：ACCA13区監察課（雰囲気が大好き）</li>
-              <li>ゲーム：シャニマス（推し：ふゆ／小糸）</li>
-              <li>食べ物：スイーツ、パスタ</li>
-              <li>趣味：読書（空気感のある作品が好き）</li>
-            </ul>
-          </div>
-        </div>
-
-        <div class="actions">
-          <a class="btn" href="/works">Worksを見る</a>
-          <a class="btn btn--ghost" href="/">トップに戻る</a>
+        <div class="pill-row">
+          <span class="pill">応用数学</span>
+          <span class="pill">Python</span>
+          <span class="pill">統計</span>
+          <span class="pill">Web</span>
         </div>
       </div>
+
+      <div class="card">
+        <h2 class="section-title">スポーツ</h2>
+        <p class="lead">
+          小中学校では野球部でキャプテンを経験。
+          高校は青森県立三本木高校でハンドボールに打ち込み、インターハイ／全国選抜に出場。
+          国体選手にも選ばれました。
+        </p>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">好きなこと</h2>
+        <ul class="list">
+          <li>読書</li>
+          <li>麻雀</li>
+          <li>アニメ鑑賞（特に「ACCA13区監察課」が好きで、リーリウム長官が推し）</li>
+          <li>筋トレ（最近の習慣）</li>
+          <li>ゲーム：シャニマス（推し：小糸ちゃん／ふゆ）</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h2 class="section-title">食べ物</h2>
+        <p class="lead">
+          パスタとスイーツが好きで、かなり甘党。辛いものはちょっと苦手です。
+        </p>
+      </div>
+
+      <div class="card accent">
+        <h2 class="section-title">このサイトでやりたいこと</h2>
+        <p class="lead">
+          日記や学習ログ、頑張っていることをここに綴っていきます。
+          「続けること」と「公開すること」を武器にして、成長の軌跡を見える化していきます。
+        </p>
+      </div>
     </section>
-  </div>
+
+    <footer class="footer">
+      <span>© yama</span>
+    </footer>
+  </main>
 </body>
 </html>
