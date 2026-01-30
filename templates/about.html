@@ -8,82 +8,48 @@
 </head>
 
 <body>
-  <header class="topbar">
-    <div class="container topbar-inner">
-      <a class="brand" href="/">yama</a>
-      <nav class="nav">
-        <a href="/">Home</a>
-        <a class="active" href="/about">About</a>
-        <a href="/works">Works</a>
-      </nav>
-    </div>
-  </header>
+  <div class="container">
+    <a class="back" href="/">← Home</a>
 
-  <main class="container">
-    <section class="hero">
-      <div class="hero-bg">
-        <img src="{{ url_for('static', filename='images/home3.png') }}" alt="favorite visual">
+    <section class="profile">
+      <div class="profile__image">
+        <img src="{{ url_for('static', filename='images/home3.png') }}" alt="profile image">
       </div>
 
-      <div class="hero-content">
-        <p class="badge">Profile</p>
-        <h1 class="hero-title">yama</h1>
-        <p class="hero-subtitle">大学生 / Python・統計 勉強中</p>
-
-        <p class="hero-text">
-          Flaskで自分のページを作りながら、Pythonと統計を毎日積み上げ中。
-          「見やすい」「伝わる」「気持ちいい」を意識して、UIも文章も磨いています。
+      <div class="profile__content">
+        <h1 class="profile__name">yama</h1>
+        <p class="profile__lead">
+          大学生。Pythonと統計を軸に、作品を作りながら学んでいます。
+          “好き”をちゃんと形にするのが目標です。
         </p>
 
-        <div class="hero-actions">
-          <a class="btn primary" href="/works">Worksを見る</a>
-          <a class="btn ghost" href="/">Homeに戻る</a>
+        <div class="profile__grid">
+          <div class="card">
+            <h2 class="card__title">プロフィール</h2>
+            <ul class="list">
+              <li>学習中：Python / Flask / Web</li>
+              <li>関心：データ・統計・ものづくり</li>
+              <li>高校：ハンドボール部（インターハイ出場）</li>
+            </ul>
+          </div>
+
+          <div class="card">
+            <h2 class="card__title">好きなもの</h2>
+            <ul class="list">
+              <li>アニメ：ACCA13区監察課（雰囲気が大好き）</li>
+              <li>ゲーム：シャニマス（推し：ふゆ／小糸）</li>
+              <li>食べ物：スイーツ、パスタ</li>
+              <li>趣味：読書（空気感のある作品が好き）</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="actions">
+          <a class="btn" href="/works">Worksを見る</a>
+          <a class="btn btn--ghost" href="/">トップに戻る</a>
         </div>
       </div>
     </section>
-
-    <section class="grid">
-      <div class="card">
-        <h2>好きなもの</h2>
-        <ul class="list">
-          <li>:contentReference[oaicite:0]{index=0}（推し：:contentReference[oaicite:1]{index=1} / :contentReference[oaicite:2]{index=2}）</li>
-          <li>お気に入りビジュ：:contentReference[oaicite:3]{index=3}</li>
-          <li>スイーツ / パスタ（甘い→塩気のループが最強）</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>スポーツ</h2>
-        <p class="muted">
-          高校時代はハンドボール部。スピードと連携で崩す競技が好きで、
-          「状況を読んで判断→声を出して合わせる」癖は今も残っています。
-          インターハイ出場の経験もあり、勝負どころの集中は得意です。
-        </p>
-      </div>
-
-      <div class="card">
-        <h2>いまやっていること</h2>
-        <ul class="list">
-          <li>FlaskでWeb制作（ルーティング / テンプレ / CSS）</li>
-          <li>Python（基礎〜アプリ化）</li>
-          <li>統計（データの見せ方・まとめ方）</li>
-        </ul>
-      </div>
-
-      <div class="card">
-        <h2>ひとこと</h2>
-        <p class="muted">
-          作品はこれから増やしていきます。まずは「シンプルだけど雰囲気がある」ページを目標に作っています。
-        </p>
-      </div>
-    </section>
-  </main>
-
-  <footer class="footer">
-    <div class="container footer-inner">
-      <span class="muted">© yama</span>
-      <span class="muted">Built with Flask</span>
-    </div>
-  </footer>
+  </div>
 </body>
 </html>
