@@ -2,20 +2,38 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Home</title>
-  <link rel="stylesheet" href="/static/style.css">
+  <title>yama | Portfolio</title>
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+  <!-- スマホ対応 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <h1>yama</h1>
-  <p>大学生 / Python・統計 勉強中</p>
+  <div class="container">
 
-  <p>
-    Flaskを使って、自分のホームページを作っています。
-  </p>
+    <!-- 名前 -->
+    <h1>yama</h1>
 
-  <ul>
-    <li><a href="/about">About</a></li>
-    <li><a href="#">Works（準備中）</a></li>
-  </ul>
+    <!-- 肩書き -->
+    <div class="subtitle">
+      大学生 / Python・統計 勉強中
+    </div>
+
+    <!-- 自己紹介 -->
+    <p>
+      Flaskを使って、自分のホームページを作っています。<br>
+      Python・統計・プログラミングを中心に勉強中で、<br>
+      アウトプットとしてWeb制作にも挑戦しています。
+    </p>
+
+    <!-- リンク -->
+    <div class="links">
+      <a href="/about">About</a>
+      <a href="/works">Works（準備中）</a>
+    </div>
+
+  </div>
 </body>
 </html>
