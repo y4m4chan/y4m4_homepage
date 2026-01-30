@@ -1,16 +1,89 @@
-body {
-  font-family: sans-serif;
-  background-color: #f5f5f5;
-
-  max-width: 800px;
-  margin: 40px auto;
-  padding: 20px;
+/* ===== base ===== */
+* { box-sizing: border-box; }
+:root{
+  --bg: #0b1020;
+  --card: rgba(255,255,255,0.06);
+  --text: rgba(255,255,255,0.92);
+  --muted: rgba(255,255,255,0.70);
+  --line: rgba(255,255,255,0.14);
+  --accent: #8b5cf6; /* 紫 */
+}
+html, body { height: 100%; }
+body{
+  margin: 0;
+  font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
+  color: var(--text);
+  background:
+    radial-gradient(900px 500px at 20% 10%, rgba(139,92,246,0.35), transparent 60%),
+    radial-gradient(900px 500px at 90% 30%, rgba(59,130,246,0.25), transparent 60%),
+    var(--bg);
 }
 
-h1 {
-  color: #333399;
+/* ===== layout ===== */
+.container{
+  width: min(980px, calc(100% - 40px));
+  margin: 0 auto;
+  padding: 28px 0 60px;
 }
 
-p {
-  font-size: 18px;
+/* ===== nav ===== */
+.nav{
+  width: min(980px, calc(100% - 40px));
+  margin: 18px auto 0;
+  padding: 14px 16px;
+  border: 1px solid var(--line);
+  border-radius: 14px;
+  background: rgba(255,255,255,0.04);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  backdrop-filter: blur(10px);
 }
+.brand{
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 800;
+  letter-spacing: 0.2px;
+}
+.nav-links a{
+  color: var(--muted);
+  text-decoration: none;
+  margin-left: 14px;
+  padding: 8px 10px;
+  border-radius: 10px;
+}
+.nav-links a:hover{ background: rgba(255,255,255,0.06); color: var(--text); }
+.nav-links a.active{ color: var(--text); border: 1px solid var(--line); }
+
+/* ===== hero ===== */
+.hero{ padding: 22px 4px 6px; }
+.badge{
+  display: inline-block;
+  padding: 8px 10px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.04);
+  color: var(--muted);
+  font-size: 13px;
+}
+h1{
+  margin: 14px 0 8px;
+  font-size: 48px;
+  letter-spacing: -0.6px;
+}
+.lead{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.8;
+  font-size: 16px;
+  max-width: 60ch;
+}
+
+/* ===== buttons ===== */
+.btn-row{ margin-top: 18px; display: flex; gap: 12px; flex-wrap: wrap; }
+.btn{
+  display: inline-block;
+  padding: 10px 14px;
+  border-radius: 12px;
+  text-decoration: none;
+  border: 1px solid var
