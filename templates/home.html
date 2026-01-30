@@ -1,39 +1,52 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>yama | Portfolio</title>
-
-  <!-- CSS -->
   <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-
-  <!-- スマホ対応 -->
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="container">
+  <div class="bg"></div>
 
-    <!-- 名前 -->
-    <h1>yama</h1>
+  <main class="container">
+    <header class="hero">
+      <div class="badge">Student / Python・統計</div>
+      <h1 class="title">yama</h1>
+      <p class="subtitle">
+        応用数学を学びながら、Pythonと統計を実践的にアウトプットしていきます。
+        小さく作って公開して、積み上げたいです。
+      </p>
 
-    <!-- 肩書き -->
-    <div class="subtitle">
-      大学生 / Python・統計 勉強中
-    </div>
+      <div class="actions">
+        <a class="btn primary" href="/about">About（自己紹介）</a>
+        <a class="btn ghost" href="/works">Works</a>
+      </div>
+    </header>
 
-    <!-- 自己紹介 -->
-    <p>
-      Flaskを使って、自分のホームページを作っています。<br>
-      Python・統計・プログラミングを中心に勉強中で、<br>
-      アウトプットとしてWeb制作にも挑戦しています。
-    </p>
+    <section class="grid">
+      <article class="card">
+        <h2>今やっていること</h2>
+        <ul class="list">
+          <li>Python（Web / 自動化 / データ処理）</li>
+          <li>統計（基礎〜分析の実装）</li>
+          <li>成果をまとめて公開する練習</li>
+        </ul>
+      </article>
 
-    <!-- リンク -->
-    <div class="links">
-      <a href="/about">About</a>
-      <a href="/works">Works（準備中）</a>
-    </div>
+      <article class="card">
+        <h2>このサイトの使い方</h2>
+        <ul class="list">
+          <li>About：プロフィールと好きなこと</li>
+          <li>Works：制作物（順次追加）</li>
+          <li>日記：後でページを増やす予定</li>
+        </ul>
+      </article>
+    </section>
 
-  </div>
+    <footer class="footer">
+      <span>© yama</span>
+    </footer>
+  </main>
 </body>
 </html>

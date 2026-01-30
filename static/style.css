@@ -1,199 +1,207 @@
+/* ========== base ========== */
 :root{
-  --bg: #0b0f1a;
-  --card: rgba(255,255,255,0.06);
-  --card2: rgba(255,255,255,0.08);
-  --text: rgba(255,255,255,0.92);
-  --muted: rgba(255,255,255,0.70);
-  --line: rgba(255,255,255,0.12);
-  --accent: #9aa7ff;
+  --bg1: #fff7d1;   /* 薄い黄色 */
+  --bg2: #ffe9a6;   /* 少し濃い黄色 */
+  --ink: #1c1b16;   /* 文字（黒寄り） */
+  --muted: rgba(28,27,22,.72);
+  --card: rgba(255,255,255,.66);
+  --line: rgba(28,27,22,.12);
+  --shadow: 0 16px 40px rgba(28,27,22,.12);
+  --radius: 18px;
+
+  --accent: #f4b400;      /* 黄の主役 */
+  --accent2: #ff8f1f;     /* オレンジ寄りの差し色 */
+  --btnText: #1c1b16;
 }
 
 *{ box-sizing: border-box; }
 html, body{ height: 100%; }
-
 body{
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Noto Sans JP", "Segoe UI", sans-serif;
-  background: radial-gradient(1200px 600px at 10% 10%, rgba(154,167,255,0.20), transparent 60%),
-              radial-gradient(900px 500px at 90% 20%, rgba(130,240,255,0.10), transparent 60%),
-              var(--bg);
-  color: var(--text);
+  font-family: ui-sans-serif, system-ui, -apple-system, "Hiragino Sans", "Noto Sans JP", "Segoe UI", Arial;
+  color: var(--ink);
+  background: #fff;
+  overflow-x: hidden;
 }
 
-a{ color: inherit; text-decoration: none; }
-.container{ width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
-
-/* Topbar */
-.topbar{
-  position: sticky;
-  top: 0;
-  z-index: 10;
-  background: rgba(11,15,26,0.65);
-  backdrop-filter: blur(12px);
-  border-bottom: 1px solid var(--line);
-}
-.topbar-inner{
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 14px 0;
-}
-.brand{
-  font-weight: 800;
-  letter-spacing: 0.3px;
-  font-size: 18px;
-}
-.nav{
-  display: flex;
-  gap: 14px;
-}
-.nav a{
-  padding: 8px 10px;
-  border-radius: 10px;
-  color: var(--muted);
-  border: 1px solid transparent;
-}
-.nav a:hover{
-  color: var(--text);
-  border-color: var(--line);
-  background: rgba(255,255,255,0.04);
-}
-.nav a.active{
-  color: var(--text);
-  border-color: rgba(154,167,255,0.45);
-  background: rgba(154,167,255,0.10);
+/* 背景（黄色グラデ＋ふわっと） */
+.bg{
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(900px 600px at 12% 12%, rgba(255,255,255,.95), transparent 60%),
+    radial-gradient(900px 600px at 85% 22%, rgba(255,255,255,.70), transparent 55%),
+    radial-gradient(900px 600px at 30% 85%, rgba(255,255,255,.55), transparent 60%),
+    linear-gradient(135deg, var(--bg1), var(--bg2));
 }
 
-/* Hero */
+/* ========== layout ========== */
+.container{
+  width: min(1000px, 92vw);
+  margin: 40px auto;
+  padding: 18px;
+}
+
 .hero{
-  position: relative;
-  margin: 26px 0 22px;
+  padding: 26px 22px;
   border: 1px solid var(--line);
-  border-radius: 22px;
-  overflow: hidden;
-  background: rgba(255,255,255,0.03);
+  background: rgba(255,255,255,.55);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
-.hero-bg{
-  position: absolute;
-  inset: 0;
-  opacity: 0.45;
-  transform: scale(1.02);
+
+.hero.compact{
+  padding: 22px 22px;
 }
-.hero-bg img{
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  filter: saturate(1.1) contrast(1.05);
-}
-.hero::after{
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(90deg, rgba(11,15,26,0.92) 0%, rgba(11,15,26,0.75) 45%, rgba(11,15,26,0.25) 100%);
-}
-.hero-content{
-  position: relative;
-  z-index: 1;
-  padding: 34px 28px;
-  max-width: 680px;
-}
+
 .badge{
-  display: inline-block;
-  padding: 6px 10px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
   border-radius: 999px;
-  border: 1px solid rgba(154,167,255,0.45);
-  background: rgba(154,167,255,0.10);
-  color: var(--text);
-  font-size: 12px;
-  letter-spacing: 0.4px;
-  margin: 0 0 10px;
+  border: 1px solid var(--line);
+  background: rgba(255,255,255,.75);
+  font-weight: 700;
+  letter-spacing: .2px;
 }
-.hero-title{
+
+.title{
+  margin: 16px 0 6px;
+  font-size: clamp(44px, 6vw, 72px);
+  line-height: 1.05;
+}
+
+.subtitle{
   margin: 0;
-  font-size: clamp(36px, 5vw, 56px);
-  letter-spacing: 0.2px;
-}
-.hero-subtitle{
-  margin: 10px 0 14px;
   color: var(--muted);
+  line-height: 1.9;
   font-size: 16px;
 }
-.hero-text{
-  margin: 0 0 18px;
-  line-height: 1.9;
-  color: var(--text);
-}
-.hero-actions{
+
+/* ========== links/buttons ========== */
+/* About/Works が青になる問題は a の色指定で止める */
+a{ color: inherit; text-decoration: none; }
+
+.actions{
   display: flex;
-  gap: 10px;
+  gap: 12px;
   flex-wrap: wrap;
+  margin-top: 18px;
 }
 
 .btn{
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  padding: 10px 14px;
-  border-radius: 12px;
+  padding: 12px 16px;
+  border-radius: 14px;
   border: 1px solid var(--line);
-  background: rgba(255,255,255,0.04);
-  color: var(--text);
-  font-weight: 700;
-}
-.btn:hover{ background: rgba(255,255,255,0.07); }
-.btn.primary{
-  border-color: rgba(154,167,255,0.55);
-  background: rgba(154,167,255,0.14);
-}
-.btn.ghost{
-  color: var(--muted);
+  font-weight: 800;
+  letter-spacing: .2px;
+  transition: transform .12s ease, box-shadow .12s ease, background .12s ease;
 }
 
-/* Cards */
+.btn.primary{
+  background: linear-gradient(135deg, var(--accent), var(--accent2));
+  color: var(--btnText);
+  border: none;
+  box-shadow: 0 14px 26px rgba(244,180,0,.28);
+}
+
+.btn.ghost{
+  background: rgba(255,255,255,.72);
+  color: var(--ink);
+}
+
+.btn:hover{
+  transform: translateY(-1px);
+  box-shadow: 0 18px 34px rgba(28,27,22,.14);
+}
+
+/* ========== cards/grids ========== */
 .grid{
   display: grid;
   grid-template-columns: repeat(12, 1fr);
   gap: 14px;
-  margin-bottom: 28px;
+  margin-top: 16px;
 }
+
 .card{
   grid-column: span 6;
   padding: 18px 18px;
-  border-radius: 18px;
+  border-radius: var(--radius);
   border: 1px solid var(--line);
   background: var(--card);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(10px);
 }
+
 .card h2{
   margin: 0 0 10px;
   font-size: 16px;
-  letter-spacing: 0.2px;
+  letter-spacing: .2px;
 }
-.muted{ color: var(--muted); line-height: 1.9; margin: 0; }
+
 .list{
   margin: 0;
   padding-left: 18px;
   color: var(--muted);
   line-height: 1.9;
 }
-.list li{ margin: 6px 0; }
-.list a{ text-decoration: underline; text-underline-offset: 3px; color: var(--text); }
 
-/* Footer */
 .footer{
-  border-top: 1px solid var(--line);
-  background: rgba(255,255,255,0.02);
-}
-.footer-inner{
-  display: flex;
-  justify-content: space-between;
-  padding: 16px 0;
+  margin-top: 22px;
+  padding: 10px 4px;
+  color: rgba(28,27,22,.55);
+  font-weight: 700;
 }
 
-/* Responsive */
+/* ========== about page ========== */
+.profile{
+  margin-top: 16px;
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+.section-title{
+  margin: 0 0 10px;
+  font-size: 16px;
+  letter-spacing: .2px;
+}
+
+.lead{
+  margin: 0;
+  color: var(--muted);
+  line-height: 1.95;
+}
+
+.pill-row{
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.pill{
+  padding: 8px 12px;
+  border-radius: 999px;
+  background: rgba(244,180,0,.20);
+  border: 1px solid rgba(244,180,0,.35);
+  font-weight: 800;
+  letter-spacing: .2px;
+}
+
+.card.accent{
+  background: linear-gradient(135deg, rgba(244,180,0,.22), rgba(255,143,31,.18));
+  border: 1px solid rgba(244,180,0,.35);
+}
+
+/* ========== responsive ========== */
 @media (max-width: 860px){
   .card{ grid-column: span 12; }
-  .hero::after{
-    background: linear-gradient(180deg, rgba(11,15,26,0.92) 0%, rgba(11,15,26,0.70) 65%, rgba(11,15,26,0.35) 100%);
-  }
-  .hero-content{ max-width: 100%; }
+  .container{ margin: 24px auto; }
 }
